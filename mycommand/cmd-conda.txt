@@ -1,0 +1,12 @@
+*** Conda ***
+
+$ conda update --all
+$ conda list
+
+
+*** Jupyter Notebook ***
+
+$ md NewPath
+$ cd NewPath
+
+jupyter notebook
