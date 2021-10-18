@@ -11,6 +11,7 @@ $ git config --global user.email "narut.lim@gmail.com"
 
 $ git add .
 $ git commit -m "comment"
+$ git push -u origin main
 $ git status
 $ git diff
 $ git log
