@@ -3,3 +3,5 @@ $ ls -d */
 $ find / -name '*.py' 2>/dev/null
 $ find . -type d -name '00*'
 $ find . -type f -name '00*'
+
+$ rm -r ./*

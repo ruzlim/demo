@@ -1,0 +1,23 @@
+*** Running Docker Images
+$ docker run --name some-rundeck -p 4440:4440 -v data:/home/rundeck/server/data rundeck/rundeck:3.4.4
+
+*** Installing on Ubuntu or Debian Linux distributions
+URL: https://docs.rundeck.com/docs/administration/install/linux-deb.html#installing-rundeck
+$ sudo apt-get install openjdk-11-jre-headless
+$ curl https://raw.githubusercontent.com/rundeck/packaging/main/scripts/deb-setup.sh 2> /dev/null | sudo bash -s rundeck
+$ sudo apt-get update
+$ sudo apt-get install rundeck
+
+*** Installing on CentOS or Red Hat Linux distributions
+URL: https://docs.rundeck.com/docs/administration/install/linux-rpm.html#installing-rundeck
+$ curl https://raw.githubusercontent.com/rundeck/packaging/main/scripts/rpm-setup.sh 2> /dev/null | sudo bash -s rundeck
+$ sudo yum update rundeck
+
+*** Starting Rundeck
+$ sudo service rundeckd start
+$ tail -f /var/log/rundeck/service.log
+$ Grails application running at http://localhost:4440 in environment: production
+
+*** Logging in for the first time
+    - Navigate to http://localhost:4440/ (opens new window)in a browser
+    - Log in with the username admin and password admin

@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  # Database
+  pgdb:
+    image: postgres:11
+    restart: always
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: 'P@ssw0rd'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - pgsite
+
+  # pgadmin4
+  pg4:
+    depends_on:
+      - pgdb
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - '80:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'postgres@domain.com'
+      PGADMIN_DEFAULT_PASSWORD: 'P@ssw0rd'
+    networks:
+      - pgsite
+
+networks:
+  pgsite:
+
+volumes:
+  pgdata:
