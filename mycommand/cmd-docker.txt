@@ -1,0 +1,17 @@
+$ npm init -y
+=> package.json
+
+$npm install express
+=> packege-lock.json
+
+Create index.js
+$ node index.js
+
+Create Dockerfile
+$ docker build -t node-14-alpine-img .
+$ docker inspect node-14-alpine-img
+$ docker run --rm --name node-14-alpine -d -p 3000:3000 node-14-alpine-img
+$ docker exec -it node-14-alpine sh
+    $ cat /etc/*-release
+    $ apk add --version
+$ docker rm node-14-alpine -f
