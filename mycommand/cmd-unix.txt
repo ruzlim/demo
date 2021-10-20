@@ -1,3 +1,9 @@
+$ cat /etc/*-release
+$ env | wc -l
+$ env | sort | head -10
+
+$ apt --version
+$ apt install <...>
 $ ls -d */
 
 $ find / -name '*.py' 2>/dev/null
@@ -5,3 +11,14 @@ $ find . -type d -name '00*'
 $ find . -type f -name '00*'
 
 $ rm -r ./*
+
+** Some commonly used ENVs in Linux ***
+    $USER: Gives current user's name.
+    $PATH: Gives search path for commands.
+    $PWD: Gives the path of present working directory.
+    $HOME: Gives path of home directory.
+    $HOSTNAME: Gives name of the host.
+    $LANG: Gives the default system language.
+    $EDITOR: Gives default file editor.
+    $UID: Gives user ID of current user.
+    $SHELL: Gives location of current user's shell program.
