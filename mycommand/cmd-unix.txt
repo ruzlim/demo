@@ -12,6 +12,10 @@ $ find . -type f -name '00*'
 
 $ rm -r ./*
 
+$ grep 'JDA A-18' filter.csv
+$ grep -nwi 'JDA A-18' *.csv
+$ grep -nwir 'JDA A-18' mytemp/
+
 ** Some commonly used ENVs in Linux ***
     $USER: Gives current user's name.
     $PATH: Gives search path for commands.
