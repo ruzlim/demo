@@ -2,6 +2,7 @@
 
 $ python -m venv venv --system-site-packages
 $ venv\Scripts\activate.bat
+$ pip list --local
 
 $ C:\Users\Narut\AppData\Local\Programs\Python\Python36\python.exe -m venv pythenv36
 
