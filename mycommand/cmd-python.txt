@@ -1,5 +1,8 @@
 *** Create Python environment on cmd ***
 
+$ python -m venv venv --system-site-packages
+$ venv\Scripts\activate.bat
+
 $ C:\Users\Narut\AppData\Local\Programs\Python\Python36\python.exe -m venv pythenv36
 
 $ python -m venv pythenv39
