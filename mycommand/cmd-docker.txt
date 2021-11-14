@@ -4,10 +4,10 @@ $ npm init -y
 $npm install express
 => packege-lock.json
 
-*** Create index.js
+*** Create index.js ***
 $ node index.js
 
-*** Create Dockerfile
+*** Create Dockerfile ***
 $ docker build -t node-alpine .
 $ docker inspect node-alpine
 $ docker run --rm --name node-alpine-app -d -p 3000:3000 node-alpine
@@ -20,17 +20,17 @@ $ docker stop node-alpine-app
 $ docker rm node-alpine-app -f
 $ docker rmi node-alpine
 
-*** Create docker-compose.yml
+*** Create docker-compose.yml ***
 $ docker-compose up -d
 $ docker-compose up --build -d
 $ docker-compose down
 
-*** Example pull
+*** Example pull ***
 $ docker pull postgres:11
 $ docker pull dpage/pgadmin4
 $ docker pull rundeck/rundeck:3.4.3
 
-*** Example run
+*** Example run ***
 $ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11
     $ psql -d postgres -h localhost -p 5432 -U postgres
     $ docker exec -it some-postgres psql -U postgres

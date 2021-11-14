@@ -1,0 +1,13 @@
+*** Create Python environment on cmd ***
+
+$ C:\Users\Narut\AppData\Local\Programs\Python\Python36\python.exe -m venv pythenv36
+
+$ python -m venv pythenv39
+$ pythenv39\Scripts\activate.bat
+$ python -m pip install --upgrade pip
+
+$ pip install -r C:\data\G1_analysis_test\requirements.txt
+$ pip freeze > requirements.txt
+
+$ deactivate
+$ rmdir pythenv39 /s
