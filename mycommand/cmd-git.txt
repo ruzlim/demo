@@ -1,3 +1,6 @@
+https://github.com/login
+ruzlim
+
 $ git clone https://github.com/ruzlim/demo.git
 $ git remote -v
 $ git remote add origin https://github.com/ruzlim/demo.git
