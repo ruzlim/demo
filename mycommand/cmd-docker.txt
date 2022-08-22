@@ -29,12 +29,18 @@ $ docker-compose up --build -d
 $ docker-compose down
 
 *** Example pull ***
+$ docker pull ubuntu:16.04
+$ docker pull jenkins/jenkins
+$ docker pull jenkins/jenkins:lts-jdk11
 $ docker pull postgres:11
 $ docker pull dpage/pgadmin4
-$ docker pull rundeck/rundeck:3.4.3
+$ docker pull deck/rundeck:3.4.3
 
 *** Example run ***
 $ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11
     $ psql -d postgres -h localhost -p 5432 -U postgres
     $ docker exec -it some-postgres psql -U postgres
 $ docker run --name some-rundeck -p 4440:4440 -v data:/home/rundeck/server/data rundeck/rundeck:3.4.4
+
+*** Jenkins ***
+$ docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v C:\Users\Narut\coding\demo\jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11

@@ -1,0 +1,39 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+RUN apt-get -y install software-properties-common git gnupg sudo nano vim wget curl zip unzip build-essential libtool autoconf uuid-dev pkg-config libsodium-dev lynx-common tcl inetutils-ping net-tools ssh openssh-server openssh-client openssl letsencrypt apt-transport-https telnet locales gdebi lsb-release
+RUN apt-get clean
+
+# Step 1 — Installing Jenkins
+RUN wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+RUN echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+RUN sudo apt-get update
+RUN sudo apt-get -y install jenkins
+
+# Step 2 — Starting Jenkins
+RUN sudo systemctl status jenkins
+# If everything went well, the beginning of the output should show that the service is active and configured to start at boot:
+
+# Step 3 — Opening the Firewall
+RUN sudo ufw allow 8080
+RUN sudo ufw status
+# Note: If the firewall is inactive, the following commands will make sure that OpenSSH is allowed and then enable it.
+# sudo ufw allow OpenSSH
+# sudo ufw enable
+
+RUN service jenkins start
+
+EXPOSE 8080
+
+
+# RUN apt-get-update
+
+# FROM ubuntu:18.04
+
+# RUN apt-get update && \
+#     apt-get install -y redis-server && \
+#     apt-get clean
+
+# EXPOSE 6379
+
+# CMD ["redis-server", "--protected-mode no"]
