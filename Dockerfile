@@ -1,27 +1,36 @@
-#Importing base image Ubuntu
-FROM ubuntu:20.04
-ENV DEBIAN_FRONTEND noninteractive
-#Updating and Upgrading Ubuntu
-RUN apt-get -y update \
-&& apt-get -y upgrade
-#Installing Basic Packages & Utilities in Ubuntu
-RUN apt-get -y install software-properties-common git gnupg sudo nano vim wget curl zip unzip build-essential libtool autoconf uuid-dev pkg-config libsodium-dev lynx-common tcl inetutils-ping net-tools ssh openssh-server openssh-client openssl letsencrypt apt-transport-https telnet locales gdebi lsb-release
-#Clear cache
-RUN apt-get clean
-#Jenkins Prerequisites
-RUN sudo apt search openjdk
-#Install Java version 11 as prerequisite
-RUN apt-get -y install openjdk-11-jdk
-#Jenkins installation
-#Download & add repository key
-RUN wget -q -O — https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-#Getting binary file into /etc/apt/sources.list.d
-RUN sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-#Updating packages
-RUN sudo apt-get update
-#Installing Jenkins
-RUN sudo apt-get -y install jenkins
-#Start jenkins
-RUN service jenkins start
-#Expose port 8080
-EXPOSE 8080
+FROM centos:7
+
+# MAINTAINER linuxtechlab
+# LABEL Remarks="This is a dockerfile example for Centos system"
+
+RUN yum -y update && \
+    yum -y install wget httpd unzip xauth openssh-server openssh-clients NetworkManager net-tools iproute telnet firewalld cronie && \
+    yum clean all
+    # java-1.8.0-openjdk-devel
+
+# COPY data/httpd.conf /etc/httpd/conf/httpd.conf
+# ADD data/html.tar.gz /var/www/html/
+
+ENV HOME /root
+# ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.342.b07-1.el7_9.x86_64/jre
+# ENV PATH $PATH:$JAVA_HOME/bin
+
+WORKDIR /root
+
+# Download test
+# RUN wget -c https://sourceforge.net/projects/pentaho/files/Pentaho-9.3/client-tools/psw-ce-9.3.0.0-428.zip.sum/download && rm download
+
+# Download Pentaho
+# RUN wget -c https://sourceforge.net/projects/pentaho/files/Pentaho-9.3/client-tools/pdi-ce-9.3.0.0-428.zip && \
+#    unzip -d ./Pentaho pdi-ce-9.3.0.0-428.zip && \
+#    rm pdi-ce-9.3.0.0-428.zip
+
+# COPY mytemp .
+
+EXPOSE 80
+
+# ENTRYPOINT ["ping"]
+# CMD ["google.com"]
+
+VOLUME ["/sys/fs/cgroup"]
+CMD ["/usr/sbin/init"]

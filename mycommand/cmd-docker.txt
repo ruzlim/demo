@@ -1,5 +1,6 @@
 https://hub.docker.com/
 ruzlim
+---------------------------------------------------------------------------------------------------
 
 $ npm init -y
 => package.json
@@ -35,6 +36,7 @@ $ docker pull jenkins/jenkins:lts-jdk11
 $ docker pull postgres:11
 $ docker pull dpage/pgadmin4
 $ docker pull deck/rundeck:3.4.3
+$ docker pull centos:7
 
 *** Example run ***
 $ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:11
@@ -44,3 +46,29 @@ $ docker run --name some-rundeck -p 4440:4440 -v data:/home/rundeck/server/data 
 
 *** Jenkins ***
 $ docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v C:\Users\Narut\coding\demo\jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
+
+---------------------------------------------------------------------------------------------------
+
+docker build -t pentaho/pdi-client:8.3.0.0 .
+docker build -f ./Dockerfile --build-arg SERVICE_PACK_VERSION=8.3.0.22 --build-arg SERVICE_PACK_DIST=1241 -t pentaho/pentaho-server:8.3.0.22 .
+docker run -it "pentaho/pdi-client:8.3.0.0" bash
+
+
+$ docker pull centos:7
+$ docker run --rm -it centos:7
+$ docker run --rm -it centos:7 sh
+    cat /etc/os-release 
+$ docker run --rm --name centos7-app -d -p 8080:8080 centos:7
+$ docker run --rm --name centos7-app -d -v ./centos7_home:/home centos:7
+$ docker run --rm --name centos7-app -d centos:7
+
+$ docker build -t centos7-img .
+$ docker run --rm --name centos7-app -p 80:80 -d centos7-img
+$ docker run --rm --name centos7-app -p 80:80 -d --privileged centos7-img
+$ docker exec -it centos7-app sh
+    vi /etc/httpd/conf/httpd.conf
+        Add: ServerName localhost
+
+$ docker build -t centos7-img .
+$ docker run --rm --name centos7-app -p 80:80 -d --privileged centos7-img
+$ docker exec -it centos7-app sh
