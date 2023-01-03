@@ -1,0 +1,32 @@
+FROM centos:7
+
+RUN yum -y update && \
+    yum -y install wget unzip && \
+    yum -y install gcc openssl-devel bzip2-devel libffi-devel zlib-devel make && \
+    yum clean all
+
+RUN wget https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
+
+RUN tar xzf Python-3.8.3.tgz
+
+RUN rm Python-3.8.3.tgz
+
+RUN cd Python-3.8.3 && \
+    ./configure --enable-optimizations && \
+    make altinstall
+
+RUN pip3.8 install --upgrade pip
+
+ENV HOME /root
+
+WORKDIR /root
+
+COPY data/Pyth38.py .
+
+EXPOSE 80
+
+# ENTRYPOINT ["ping"]
+# CMD ["google.com"]
+
+VOLUME ["/sys/fs/cgroup"]
+CMD ["/usr/sbin/init"]

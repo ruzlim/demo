@@ -72,3 +72,7 @@ $ docker exec -it centos7-app sh
 $ docker build -t centos7-img .
 $ docker run --rm --name centos7-app -p 80:80 -d --privileged centos7-img
 $ docker exec -it centos7-app sh
+
+$ docker build -t centos7-pyth-img -f Dockerfile.pyth .
+$ docker run --rm --name centos7-pyth-app -p 80:80 -d --privileged centos7-pyth-img
+$ docker exec -it centos7-pyth-app sh
