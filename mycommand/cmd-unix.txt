@@ -1,3 +1,4 @@
+
 $ cat /etc/*-release
 $ env | wc -l
 $ env | sort | head -10
@@ -16,6 +17,8 @@ $ grep 'JDA A-18' filter.csv
 $ grep -nwi 'JDA A-18' *.csv
 $ grep -nwir 'JDA A-18' mytemp/
 $ grep -nwir 'JDA A-18 (Additional)' C:/data/G1_analysis_test/master/ptthvc//**//*.py > 'C:\data\G1_analysis_test\PY_files_containing_JDA A-18 (Additional).csv'
+
+---------------------------------------------------------------------------------------------------
 
 ** Some commonly used ENVs in Linux ***
     $USER: Gives current user's name.

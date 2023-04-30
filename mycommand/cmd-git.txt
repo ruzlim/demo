@@ -1,5 +1,8 @@
+
 https://github.com/login
 ruzlim
+
+---------------------------------------------------------------------------------------------------
 
 $ git clone https://github.com/ruzlim/demo.git
 $ git remote -v
@@ -10,8 +13,8 @@ $ git init
 $ git config --list
 $ git config --list --show-origin
 $ git config --global --list
-$ git config --global user.name "ruzlim"
 $ git config --global user.email "narut.lim@gmail.com"
+$ git config --global user.name "ruzlim"
 
 $ git branch <branch_name>
 $ git checkout <branch_name>
