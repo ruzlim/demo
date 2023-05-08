@@ -13,6 +13,7 @@ print(f'\nos : {os}')
 print(f'\nparent_dir : {parent_dir}')
 print(f'\nlib_dir : {lib_dir}')
 print('\n')
+
 for i in sys.path:
     print(f'i : {i}')
 # print(f'\npd : {pd}')
